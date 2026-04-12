@@ -1,4 +1,4 @@
-Unnamed: 0.1;Unnamed: 0;Text;Sentiment;Timestamp;User;Platform;Hashtags;Retweets;Likes;Country;Year;Month;Day;Hour
+﻿Unnamed: 0.1;Unnamed: 0;Text;Sentiment;Timestamp;User;Platform;Hashtags;Retweets;Likes;Country;Year;Month;Day;Hour
 0;0;¡Disfrutando de un hermoso día en el parque!;Positivo;15-01-2023 12:30;User123;Twitter;#Naturaleza #Parque;15;30;EE.UU;2023;1;15;12
 1;1;Esta mañana el tráfico era terrible.;Negativo;15-01-2023 8:45;CommuterX;Twitter;#Tráfico #Mañana;5;10;Canadá;2023;1;15;8
 2;2;¡Acabo de terminar un entrenamiento increíble!??;Positivo;15-01-2023 15:45;FitnessFan;Instagram;#Fitness #Entrenamiento;20;40;EE.UU;2023;1;15;15
@@ -246,7 +246,6 @@ Unnamed: 0.1;Unnamed: 0;Text;Sentiment;Timestamp;User;Platform;Hashtags;Retweets
 245;249;Sumérgete en la serenidad de una noche iluminada por la luna, donde los tranquilos susurros de la naturaleza traen paz al alma.;Serenidad;12-05-2020 19:30;MoonlitSoul;Instagram;#Serenidad #PazLuzDeLaLuna;25;50;EE.UU;2020;5;12;19
 246;250;Impulsado por la curiosidad, se aventura en reinos inexplorados, un intrépido explorador de los misterios del mundo.;Curiosidad;01-12-2022 9:15;FearlessExplorer;Facebook;#Curiosidad #ExploradorSin Miedo;22;44;India;2022;12;1;9
 247;251;Envuelto en el manto del entumecimiento emocional, un escudo contra las tormentas de la turbulencia de la vida.;Entumecimiento;30-11-2021 15:30;TurbulentShield;Instagram;#Entumecimiento #Tormentas Emocionales;10;20;Canadá;2021;11;30;15
-248;252;Bailando por la vida con la exuberancia de un espíritu despreocupado, abrazando la alegría y el entusiasmo en cada paso.;Ánimo;12-07-2018 17:45;JoyfulDancer;Twitter;#Zest #EspírituDespreocupado;15;30;EE.UU;2018;7;12;17
 249;253;Disfrutando del brillo dorado de la alegría, un río sereno que fluye a través del paisaje del corazón.;Neutral;05-09-2020 20:10;SereneBasker;Facebook;#Alegría #ResplandorDorado;18;36;Australia;2020;9;5;20
 250;254;Mirando hacia el horizonte con ojos esperanzados, pintando un lienzo de sueños iluminados por el sol del optimismo.;Esperanza;18-04-2022 8:00;DreamPainter;Instagram;#Esperanza #CanvasOfDreams;12;24;India;2022;4;18;8
 251;255;Erguido, orgulloso como un roble, las ramas del logro se extienden hacia el cielo del logro.;Orgullo;10-12-2019 12:20;OakAchiever;Twitter;#Orgulloso #RamasDeLogro;25;50;Canadá;2019;12;10;12
@@ -262,7 +261,6 @@ Unnamed: 0.1;Unnamed: 0;Text;Sentiment;Timestamp;User;Platform;Hashtags;Retweets
 261;265;Revelando las capas de curiosidad, un laberinto de preguntas que conducen a tesoros de conocimiento por descubrir.;Neutral;29-11-2020 14:45;KnowledgeSeeker;Instagram;#Curiosidad #LaberintoDePreguntas;17;34;EE.UU;2020;11;29;14
 262;266;En el abrazo de la brisa otoñal, hojas de ambivalencia bailando en un vals entre elecciones e incertidumbres.;Ambivalencia;14-09-2019 10:20;BreezeWaltzer;Facebook;#Ambivalencia #ValsOtoñal;14;28;Reino Unido;2019;9;14;10
 263;267;La gratitud como estrella guía, navegando por la constelación de bendiciones en el vasto universo de los preciosos momentos de la vida.;Positivo;12-03-2022 19:55;StarNavigator;Twitter;#Grateful #GuidingStar;19;38;Australia;2022;3;12;19
-264;268;Con el corazón entusiasmado, corriendo por campos de entusiasmo, persiguiendo rayos de sol y risas en los prados de la alegría.;Ánimo;30-03-2023 16:30;MeadowSprinter;Instagram;#Zest #CamposDeEntusiasmo;16;32;India;2023;3;30;16
 265;269;Una lluvia compasiva, lágrimas de empatía cayendo suavemente, alimentando las semillas de la bondad en el jardín de las conexiones humanas.;Neutral;01-07-2021 12:10;RainNurturer;Facebook;#Compasivo #LágrimasDeEmpatía;21;42;Canadá;2021;7;1;12
 266;270;Escalando con orgullo las cimas de los logros, un alpinista conquistando desafíos y plantando la bandera del éxito.;Orgullo;05-01-2020 8:45;PeakConqueror;Twitter;#Proud #ScalingPeaks;23;46;EE.UU;2020;1;5;8
 267;271;Abrazado por el amanecer Esperanza, un jardinero que siembra semillas de optimismo y cuida las flores de un mañana más brillante.;Esperanza;17-07-2022 6:15;DawnGardener;Instagram;#Esperanza #SemillasDeOptimismo;14;28;Reino Unido;2022;7;17;6
@@ -730,9 +728,8 @@ Unnamed: 0.1;Unnamed: 0;Text;Sentiment;Timestamp;User;Platform;Hashtags;Retweets
 730;734;Recaudación de fondos exitosa para una iniciativa benéfica escolar.¡La alegría de retribuir a la comunidad!;Felicidad;05-04-2019 17:30;CharityFundraisingTriumphHighSchool;Twitter;#Aportaciones comunitarias #Filantropía en la escuela secundaria;22;42;Canadá;2019;4;5;17
 731;735;¡Participando en un festival multicultural, celebrando la diversidad con música, baile y comida deliciosa!;Felicidad;29-02-2020 20:45;MulticulturalFestivalJoyHighSchool;Facebook;#CelebraciónCultural #UnidadSecundaria;21;43;Reino Unido;2020;2;29;20
 732;736;¡Organizando un show de talentos virtual en tiempos difíciles, haciendo sonreír a los compañeros!;Felicidad;15-11-2020 15:15;VirtualTalentShowSuccessHighSchool;Instagram;#EntretenimientoVirtual #PositividadSecundaria;24;47;EE.UU;2020;11;15;15
-
-=======
-Unnamed: 0.1;Unnamed: 0;Text;Sentiment;Timestamp;User;Platform;Hashtags;Retweets;Likes;Country;Year;Month;Day;Hour
+;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;
 0;0;¡Disfrutando de un hermoso día en el parque!;Positivo;15-01-2023 12:30;User123;Twitter;#Naturaleza #Parque;15;30;EE.UU;2023;1;15;12
 1;1;Esta mañana el tráfico era terrible.;Negativo;15-01-2023 8:45;CommuterX;Twitter;#Tráfico #Mañana;5;10;Canadá;2023;1;15;8
 2;2;¡Acabo de terminar un entrenamiento increíble!??;Positivo;15-01-2023 15:45;FitnessFan;Instagram;#Fitness #Entrenamiento;20;40;EE.UU;2023;1;15;15
@@ -980,7 +977,6 @@ Unnamed: 0.1;Unnamed: 0;Text;Sentiment;Timestamp;User;Platform;Hashtags;Retweets
 245;249;Sumérgete en la serenidad de una noche iluminada por la luna, donde los tranquilos susurros de la naturaleza traen paz al alma.;Serenidad;12-05-2020 19:30;MoonlitSoul;Instagram;#Serenidad #PazLuzDeLaLuna;25;50;EE.UU;2020;5;12;19
 246;250;Impulsado por la curiosidad, se aventura en reinos inexplorados, un intrépido explorador de los misterios del mundo.;Curiosidad;01-12-2022 9:15;FearlessExplorer;Facebook;#Curiosidad #ExploradorSin Miedo;22;44;India;2022;12;1;9
 247;251;Envuelto en el manto del entumecimiento emocional, un escudo contra las tormentas de la turbulencia de la vida.;Entumecimiento;30-11-2021 15:30;TurbulentShield;Instagram;#Entumecimiento #Tormentas Emocionales;10;20;Canadá;2021;11;30;15
-248;252;Bailando por la vida con la exuberancia de un espíritu despreocupado, abrazando la alegría y el entusiasmo en cada paso.;Ánimo;12-07-2018 17:45;JoyfulDancer;Twitter;#Zest #EspírituDespreocupado;15;30;EE.UU;2018;7;12;17
 249;253;Disfrutando del brillo dorado de la alegría, un río sereno que fluye a través del paisaje del corazón.;Neutral;05-09-2020 20:10;SereneBasker;Facebook;#Alegría #ResplandorDorado;18;36;Australia;2020;9;5;20
 250;254;Mirando hacia el horizonte con ojos esperanzados, pintando un lienzo de sueños iluminados por el sol del optimismo.;Esperanza;18-04-2022 8:00;DreamPainter;Instagram;#Esperanza #CanvasOfDreams;12;24;India;2022;4;18;8
 251;255;Erguido, orgulloso como un roble, las ramas del logro se extienden hacia el cielo del logro.;Orgullo;10-12-2019 12:20;OakAchiever;Twitter;#Orgulloso #RamasDeLogro;25;50;Canadá;2019;12;10;12
@@ -996,7 +992,6 @@ Unnamed: 0.1;Unnamed: 0;Text;Sentiment;Timestamp;User;Platform;Hashtags;Retweets
 261;265;Revelando las capas de curiosidad, un laberinto de preguntas que conducen a tesoros de conocimiento por descubrir.;Neutral;29-11-2020 14:45;KnowledgeSeeker;Instagram;#Curiosidad #LaberintoDePreguntas;17;34;EE.UU;2020;11;29;14
 262;266;En el abrazo de la brisa otoñal, hojas de ambivalencia bailando en un vals entre elecciones e incertidumbres.;Ambivalencia;14-09-2019 10:20;BreezeWaltzer;Facebook;#Ambivalencia #ValsOtoñal;14;28;Reino Unido;2019;9;14;10
 263;267;La gratitud como estrella guía, navegando por la constelación de bendiciones en el vasto universo de los preciosos momentos de la vida.;Positivo;12-03-2022 19:55;StarNavigator;Twitter;#Grateful #GuidingStar;19;38;Australia;2022;3;12;19
-264;268;Con el corazón entusiasmado, corriendo por campos de entusiasmo, persiguiendo rayos de sol y risas en los prados de la alegría.;Ánimo;30-03-2023 16:30;MeadowSprinter;Instagram;#Zest #CamposDeEntusiasmo;16;32;India;2023;3;30;16
 265;269;Una lluvia compasiva, lágrimas de empatía cayendo suavemente, alimentando las semillas de la bondad en el jardín de las conexiones humanas.;Neutral;01-07-2021 12:10;RainNurturer;Facebook;#Compasivo #LágrimasDeEmpatía;21;42;Canadá;2021;7;1;12
 266;270;Escalando con orgullo las cimas de los logros, un alpinista conquistando desafíos y plantando la bandera del éxito.;Orgullo;05-01-2020 8:45;PeakConqueror;Twitter;#Proud #ScalingPeaks;23;46;EE.UU;2020;1;5;8
 267;271;Abrazado por el amanecer Esperanza, un jardinero que siembra semillas de optimismo y cuida las flores de un mañana más brillante.;Esperanza;17-07-2022 6:15;DawnGardener;Instagram;#Esperanza #SemillasDeOptimismo;14;28;Reino Unido;2022;7;17;6
@@ -1464,4 +1459,4 @@ Unnamed: 0.1;Unnamed: 0;Text;Sentiment;Timestamp;User;Platform;Hashtags;Retweets
 730;734;Recaudación de fondos exitosa para una iniciativa benéfica escolar.¡La alegría de retribuir a la comunidad!;Felicidad;05-04-2019 17:30;CharityFundraisingTriumphHighSchool;Twitter;#Aportaciones comunitarias #Filantropía en la escuela secundaria;22;42;Canadá;2019;4;5;17
 731;735;¡Participando en un festival multicultural, celebrando la diversidad con música, baile y comida deliciosa!;Felicidad;29-02-2020 20:45;MulticulturalFestivalJoyHighSchool;Facebook;#CelebraciónCultural #UnidadSecundaria;21;43;Reino Unido;2020;2;29;20
 732;736;¡Organizando un show de talentos virtual en tiempos difíciles, haciendo sonreír a los compañeros!;Felicidad;15-11-2020 15:15;VirtualTalentShowSuccessHighSchool;Instagram;#EntretenimientoVirtual #PositividadSecundaria;24;47;EE.UU;2020;11;15;15
->>>>>>> 6fbafee67697c6ab3a534c7bb15cc3c1eaed58f9:data-science/datasets/datasets-origin/dataset1_esp.csv
+;;;;;;;;;;;;;;
