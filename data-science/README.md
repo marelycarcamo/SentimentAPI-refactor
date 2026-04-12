@@ -1,185 +1,116 @@
 # 🧠 SentimentAPI — Data Science MVP
+
 > **Hackathon ONE | Equipo Data Science**
 
-![Status](https://img.shields.io/badge/Status-MVP_Finalizado-success)
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.95%2B-009688?logo=fastapi&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-orange?logo=scikit-learn&logoColor=white)
+### 📌 Contexto del Proyecto: SentimentAPI
 
-**SentimentAPI** es un microservicio inteligente que clasifica el feedback de usuarios (reseñas, comentarios, encuestas) y devuelve una predicción de sentimiento consumible vía API REST.
+Este repositorio es un **espejo de mi contribución individual** al proyecto `SentimentAPI`, desarrollado en el marco de un **hackathon** por un equipo de  **8 personas** .
 
----
+`SentimentAPI` es un **microservicio inteligente** que expone una API REST capaz de recibir feedback de usuarios (reseñas, comentarios, encuestas, etc.) y devolver una **predicción de sentimiento** (positivo, negativo, neutral) en tiempo real. El objetivo del proyecto era construir una solución completa, desde la ingesta de datos hasta el despliegue del modelo.
 
-## 📋 Tabla de Contenidos
-- [Equipo y Roles](#-equipo-y-roles)
-- [Descripción General](#-descripción-general)
-- [Arquitectura y Flujo](#-arquitectura-y-flujo)
-- [Datasets y Diccionario de Datos](#-datasets-y-diccionario-de-datos)
-- [Pipeline de Procesamiento](#-pipeline-de-procesamiento)
-- [QA y Testing (Resultados)](#-qa-y-testing-calidad-y-reproducibilidad)
-- [Uso de la API](#-uso-de-la-api)
-- [Instalación y Ejecución](#-instalación-y-ejecución)
+### 🧩 Mi rol en el equipo
+
+Dentro del equipo fui responsable de la **fase de preparación y limpieza de datos** (Data Engineering + Data Science). Este notebook contiene  **mi parte exclusiva del trabajo** :
+
+* **Procesamiento de 3 datasets heterogéneos** (diferentes formatos, codificaciones y niveles de granularidad).
+* **Pipeline de limpieza, normalización y categorización** de sentimientos en español.
+* **Generación de un dataset unificado y balanceado** , listo para entrenar el modelo de clasificación que usaría el microservicio.
+
+> ⚠️  **Nota importante** : Este repositorio **no incluye** el código del microservicio (API, despliegue, etc.) ni el trabajo del resto del equipo. Es únicamente una muestra de mis capacidades como especialista en procesamiento de datos y documentación técnica, pensado para que reclutadores y aprendices puedan evaluar mi enfoque, calidad de código y toma de decisiones.
 
 ---
 
-## 👥 Equipo y Roles
+### Enlaces del Proyecto
 
-| Rol | Miembro |
-| :--- | :--- |
-| **Líder de Integración (Java/DS)** | Eduardo |
-| **Especialista NLP** | Marely |
-| **Científico/a de ML** | Alex |
-| **Data QA & Documentation** | Agustin |
+[Proyecto Proyecto 1: SentimentAPI — Análisis de Sentimientos de Feedbacks para Data Science | No Country | No Country](https://nocountry.tech/hackathon-one-ii-latam/cmj15mkcy001joy014aszb3z5)
+
+[Repositorio GitHub Sentiment API (original)](https://github.com/ml-punto-tech/sentiment-api)
 
 ---
 
-## 📖 Descripción General
+### 🧠 Pipeline de Análisis de Sentimientos
 
-Este proyecto implementa un pipeline de **Natural Language Processing (NLP)** supervisado. El objetivo es recibir texto crudo desde un Back-end (Java) y retornar:
-1.  **Predicción:** `Positivo`, `Neutral` o `Negativo`.
-2.  **Probabilidad:** Score de confianza del modelo.
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![Hackathon](https://img.shields.io/badge/Hackathon-SentimentAPI-green)](https://github.com/tu-usuario/SentimentAPI-refactor)
 
-### Objetivos de Data Science
-* ✅ **Dataset:** Limpieza y etiquetado para entrenamiento supervisado.
-* ✅ **Pipeline:** Normalización de texto y vectorización reproducible.
-* ✅ **Modelo:** Entrenamiento de modelo base (TF-IDF + Logistic Regression).
-* ✅ **QA:** Evidencia de calidad y pruebas de estrés de datos.
+> **Notebook**: `Modelo_SentimentAPI.ipynb`
+> **Autor**: [Marely Cárcamo Quisto](https://www.linkedin.com/in/marely/)
+> **Propósito**: Procesar, limpiar y unificar múltiples datasets de sentimientos en español, transformándolos en un dataset de alta calidad listo para modelos de Machine Learning.
 
----
+### 📌 Descripción Notebook SentimentAPI
 
-## 🏗 Arquitectura y Flujo
+Este notebook implementa un **pipeline de datos completo** para análisis de sentimientos en español.
+Toma **tres datasets crudos** con diferentes estructuras, codificaciones y niveles de granularidad, y los convierte en un único conjunto de datos **balanceado, sin contradicciones y con sentimientos normalizados** (positivo / negativo / neutral).
 
-El Back-end envía un JSON con el campo `text`. El microservicio en Python procesa, clasifica y responde.
+El pipeline está diseñado para ser **escalable**, **modular** y **reproducible** – añadir un nuevo dataset solo requiere una línea en un diccionario de configuración.
 
-![Flujo y Arquitectura](images/architecture_microservice.png)
-*Figura 1. Microservicio de sentimientos (Python API) — Flujo y arquitectura.*
 
-**Tech Stack:**
-* **Entrada:** JSON.
-* **Motor:** `scikit-learn`, `joblib`, `pandas`.
-* **API:** `FastAPI`, `uvicorn`.
 
 ---
 
-## 💾 Datasets y Diccionario de Datos
 
-Se utilizan dos datasets principales en el flujo de trabajo:
+🔧 Detalles técnicos destacados de mi implementación
+A continuación se describen las decisiones de diseño y las técnicas implementadas en el notebook, pensadas para garantizar trazabilidad, escalabilidad y calidad del dato.
 
-### 1. Dataset Final (`dataset_listo_para_ML.csv`)
-*Dataset limpio utilizado para el entrenamiento del modelo.*
+#### 1. Arquitectura modular y escalable con procesar_dic()
+Creé una función genérica procesar_dic() que aplica cualquier función de transformación a todos los DataFrames almacenados en un diccionario.
 
-✅ **Dataset actual en uso (v2):** `dataset_listo_para_ML (2).csv`  
-Recomendación: renombrarlo en el repo a **`dataset_listo_para_ML.csv`** para estandarizar.
+Esto permite añadir nuevos datasets simplemente agregando una entrada al diccionario datasets, sin modificar el resto del pipeline.
 
-**Resumen (v2):**
-- **Registros:** **3272**
-- **Duplicados (por texto):** **424 (12.96%)**
-- **Distribución:** `negativo` 39.73% | `positivo` 37.62% | `neutral` 22.65%
+Cada etapa (carga, filtrado, limpieza) genera un nuevo diccionario con sufijos consistentes (_cargado, _filtrado, _limpio), evitando inconsistencias y sobrescrituras accidentales.
 
-| Variable | Tipo | Descripción |
-| :--- | :--- | :--- |
-| `Texto_Limpio` | String | Texto preprocesado según reglas del pipeline (puede conservar mayúsculas y caracteres no-ASCII para capturar intensidad/emoción). |
-| `Sentimiento_Final` | String | Target: `Positivo`, `Neutral`, `Negativo` *(en el CSV v2 viene en minúscula: `positivo`, `neutral`, `negativo`)*. |
+#### 2. Trazabilidad total mediante acumuladores y variables globales
+Implementé un sistema de contadores acumulativos (CONTADOR_GLOBAL) que registra, paso a paso, el número de registros eliminados por:
 
-### 2. Dataset Crudo (`sentimentdataset_es.csv`)
-*Contiene 15 columnas originales incluyendo `Timestamp`, `User`, `Platform`, `Hashtags`, etc.*
+Contradicciones semánticas (mismo texto con distinto sentimiento)
 
----
+Duplicados exactos (mismo texto + mismo sentimiento)
 
-## ⚙️ Pipeline de Procesamiento
+Valores nulos o vacíos
 
-El notebook `Procesamiento_y_Clasificacion_de_Datos_SentimentAPI.ipynb` ejecuta las siguientes transformaciones:
+Estos acumuladores se actualizan en cada fase y al final alimentan un gráfico interactivo (Plotly) que muestra de forma visual el impacto de cada criterio de limpieza.
 
-1.  **Carga y Selección:** Extracción de columnas `Text` y `Sentiment`.
-2.  **Limpieza:**
-    * Normalización y corrección de problemas de **encoding** (dataset exportado desde Excel → CSV).
-    * Limpieza de ruido común (espacios/formatos) y estandarización para entrenamiento.
-    * *Decisión de diseño (v2):* se evita forzar todo a minúsculas para conservar **intensidad emocional** (ej. “GENIAL”, “HORRIBLE”) cuando aporta señal.
-3.  **Categorización:** Mapeo de emociones complejas a las 3 clases base.
-    * *Nota:* Sentimientos ambiguos no mapeados se asignan a `Neutral` (Regla de negocio MVP).
+La lógica está encapsulada en la función limpieza_dataframe_unificado(), que además adjunta las estadísticas como atributo del DataFrame (df.estadisticas_limpieza), facilitando su reutilización y auditoría.
 
-> 🔎 Hallazgo dataset v2: aún existen registros con `#/@` y URLs en una fracción del dataset.
-> Se documenta en QA como punto de mejora (según el objetivo del MVP).
+#### 3. Clasificación inteligente con diccionario externo
+Los datasets originales tenían una granularidad excesiva: hasta 105 sentimientos distintos (ej. "admiración", "asombro", "adoración").
 
----
+Para reducir la dimensionalidad y facilitar el aprendizaje supervisado, cargué un diccionario externo de 106 términos (descargado desde GitHub) que mapea cada sentimiento específico a una de tres categorías: positivo, negativo o neutral.
 
-## 🧪 QA y Testing (Calidad y Reproducibilidad)
+La función categorizar_sentimiento() aplica este mapeo de forma eficiente y tolerante a mayúsculas/minúsculas.
 
-### 6.A Testing de Datos (ETL)
-Validamos que el dataset final sea íntegro y consistente antes del entrenamiento.
+#### 4. Limpieza de texto robusta para el español
+La función limpiar_texto_sentimientos() realiza una normalización Unicode (NFD) para eliminar tildes, pero preserva la letra ñ mediante un sistema de marcadores temporales – algo crítico en español para no perder significado ("año" ≠ "ano").
 
-* **Integridad:** 0 nulos en columnas críticas, sin pérdida de registros.
-* **Duplicados:** Se detectaron **424 duplicados (12.96%)** por texto.
-  *Decisión sugerida:* conservarlos (refuerzan frases comunes) o deduplicar (reduce sesgo). Queda explicitado como criterio de QA.
-* **Distribución de Clases:**
+También se eliminan hashtags, URLs rotas, caracteres no imprimibles y se normalizan espacios múltiples.
 
-![Distribución de Clases](images/class_distribution.png)
-*Figura 2. Distribución de clases (dataset v2): Negativo (39.73%), Positivo (37.62%), Neutral (22.65%).*
+Se mantiene la mayúsculas iniciales para no perder posibles señales emocionales (ej. "FELIZ" vs "feliz").
 
-**Problemas y resoluciones (Dataset):**
-- **Incidente de encoding (Excel → CSV):** se detectó “mojibake”/caracteres corruptos al importar el dataset desde Excel.
-  **Resolución:** exportación a CSV y normalización del encoding antes de integrar al pipeline.
+#### 5. Detección automática de encoding y manejo de errores de red
+Cada dataset se descarga desde una URL pública. La función importar_dataset() utiliza chardet para detectar automáticamente el encoding (UTF-8, Windows-1252, ISO-8859-15, etc.), evitando caracteres corruptos.
 
-### 6.B Testing de Machine Learning
-**Modelo:** Pipeline `TF-IDF Vectorizer` + `Logistic Regression`.
+Incluye reintentos con separadores alternativos (, , ; , \t) si el especificado falla.
 
-> ⚠️ Métricas recalculadas con el **dataset v2** (`dataset_listo_para_ML (2).csv`), split estratificado 80/20 (`random_state=42`).
+Captura excepciones HTTPError y URLError para informar fallos sin detener todo el pipeline.
 
-| Métrica | Valor (Holdout 20%) |
-| :--- | :--- |
-| **Accuracy** | **0.6840** |
-| **F1 Macro** | **0.6440** |
-| **F1 Weighted** | **0.6705** |
+#### 6. Eliminación de contradicciones semánticas (decisión fundamentada)
+Detecté que algunos textos aparecían etiquetados con diferentes sentimientos en distintos registros (ej. la misma frase marcada como positivo y negativo).
 
-**Matriz de Confusión:**
-![Matriz de Confusión](images/confusion_matrix.png)
-*Figura 3. Matriz de confusión (dataset v2). La clase 'Neutral' es la más difícil (Recall ≈ 0.365).*
+Decisión: eliminé todos los registros de esos textos contradictorios (216 casos), porque entrenar con ellos introduciría ruido insalvable.
+Justificación documentada en el notebook.
 
-**Validación Cruzada (5-Fold):**
-El modelo demuestra estabilidad con un F1 Macro promedio de **0.6580 ± 0.0101**.
+#### 7. Visualización interactiva para comunicación de resultados
+Utilicé plotly.graph_objects y make_subplots para generar un dashboard de dos paneles:
 
----
+Barras horizontales que desglosan las causas de eliminación.
 
-## 🔌 Uso de la API
+Gráfico circular que muestra la proporción final de registros conservados vs. eliminados.
 
-### Endpoint: `/sentiment`
+La distribución final de sentimientos se presenta también con un gráfico combinado (pie + barras), evidenciando el balance logrado (≈34% cada clase).
 
-**Request (JSON):**
-json
-{
-  "text": "El servicio fue excelente y muy rápido"
-}
+💡 Estas decisiones reflejan mi enfoque en código mantenible, auditoría de datos, escalabilidad y comunicación visual de resultados – cualidades que considero fundamentales en entornos colaborativos y de producción.
 
-**Response OK (200):**
-JSON
-{
-  "prevision": "Positivo",
-  "probabilidad": 0.87
-}
+⚠️ Nota importante
+Este repositorio no incluye el código del microservicio (API, despliegue, etc.) ni el trabajo del resto del equipo. Es únicamente una muestra de mis capacidades como especialista en procesamiento de datos y documentación técnica, pensado para que reclutadores y aprendices puedan evaluar mi enfoque, calidad de código y toma de decisiones.
 
-**Response Error:**
-JSON
-{
-  "error": "El campo 'text' es obligatorio y debe tener al menos 3 caracteres."
-}
+Si quieres, puedo añadir un diagrama de flujo (en texto o con emojis) resumiendo el pipeline, o crear una tabla con los resultados numéricos finales. Dime si prefieres alguna variación.
 
-🚀 Instalación y Ejecución
-Requisitos:
-- Python 3.10+
-- Librerías: pandas, scikit-learn, joblib, fastapi, uvicorn, python-multipart.
-
-Pasos
-1) Clonar el repositorio
-git clone https://github.com/AgusLopez50/sentiment-api.git
-cd sentiment-api
-
-2) Instalar dependencias
-pip install -r requirements.txt
-
-3) Entrenar el modelo (Opcional si ya tienes el .joblib)
-- Ejecutar el notebook ModeloSentimentAPI.ipynb para generar modelo_entrenado.joblib.
-
-4) Levantar la API
-uvicorn main:app --reload
-
-Fecha de actualización: 2026-01-05
