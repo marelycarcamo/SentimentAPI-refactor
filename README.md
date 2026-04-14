@@ -4,7 +4,7 @@
 
     **Hackathon ONE | Equipo Data Science**
 
-> [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![Hackathon](https://img.shields.io/badge/Hackathon-SentimentAPI-green)](https://github.com/tu-usuario/SentimentAPI-refactor)
+> [![Python 3.12](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![Hackathon](https://img.shields.io/badge/Hackathon-SentimentAPI-green)](https://github.com/tu-usuario/SentimentAPI-refactor)
 >
 > ---
 >
@@ -14,7 +14,7 @@ Este repositorio es un **espejo de mi contribución individual** al proyecto `Se
 
 `SentimentAPI` es un **microservicio inteligente** que expone una API REST capaz de recibir feedback de usuarios (reseñas, comentarios, encuestas, etc.) y devolver una **predicción de sentimiento** (positivo, negativo, neutral) en tiempo real. El objetivo del proyecto era construir una solución completa, desde la ingesta de datos hasta el despliegue del modelo.
 
-![Proceso SentimentAPI](image/README/proceso_sentiment_api.png)
+![Proceso SentimentAPI: Flujo completo desde preparación de datos hasta modelo entrenado. Fase 1 muestra 4,745 registros crudos siendo filtrados a 3,454 limpios, con 27.2% eliminados por duplicados, contradicciones y valores nulos. Fase 2 presenta el entrenamiento con balanceo SMOTE, generación de datos sintéticos, modelo SVM Vieja Confiable con precisión final del 82.8%, y tabla de rendimiento mostrando métricas por clase: Precisión entre 0.82-0.84, F1-Score entre 0.81-0.85 para sentimientos negativo, neutral y positivo](images/README/proceso_sentiment_api.png)
 
 ### Enlaces del Proyecto
 
@@ -62,37 +62,40 @@ Con el objetivo de mejorar la capacidad de generalización del modelo, se trabaj
 
 ```
 Sentiment-API-Refactor
-│ 
-├── /datasets
-│      ├── /datasets-origin
-│      │     ├── dataset1.csv
-│      │     ├── dataset2.csv
-│      │     └── dataset3.csv
-│      └── dataset_listo_para_ML.csv
-│
-├── /image
-│   └── README
-│        ├── proceso_sentiment_api.png
-│        ├── preparacion_limpieza_datos.png
-│        ├── eliminacion_registros.png
-│        └── distribucion_sentimientos.png
-│
-├── /notebooks
-│    └──  Modelo_SentimentAPI.ipynb
-│
-├── /source
-│       └──  diccionarios
-│             ├── sentimientos_mapeo.json
-│             ├── sentimientos_negativos.txt
-│             ├── sentimientos-neutros.txt
-│             └── sentimientos_positivos.txt  
 │
 ├── .gitignore
 ├── README.md
-└── requirements.txt
-```
+├── requirements.txt
+│ 
+├── /image
+│     └── /README
+│          ├── proceso_sentiment_api.png
+│          ├── preparacion_limpieza_datos.png
+│          ├── eliminacion_registros.png
+│          └── distribucion_sentimientos.png
+│
+└── /data-science
+     │
+     ├── /notebooks
+     │     └── Modelo_SentimentAPI.ipynb   # Pipeline completo de preparación y limpieza.
+     │
+     ├── /datasets
+     │     ├── dataset_listo_para_ML.csv
+     │     │
+     │     └── /datasets-origin           # Punto de montaje para las URLs
+     │          ├── dataset1.csv
+     │          ├── dataset2.csv
+     │          └── dataset3.csv
+     │
+     └── /source
+           └── /diccionarios
+                ├── sentimientos_mapeo.json    # Mapeo de 106 sentimientos a 3 categorías
+                ├── sentimientos_negativos.txt
+                ├── sentimientos-neutros.txt
+                └── sentimientos_positivos.txt  
 
----
+
+```
 
 ## 📌 Descripción Notebook SentimentAPI
 
@@ -101,7 +104,7 @@ Toma **tres datasets crudos** con diferentes estructuras, codificaciones y nivel
 
 El pipeline está diseñado para ser **escalable**, **modular** y **reproducible** – añadir un nuevo dataset solo requiere una línea en un diccionario de configuración.
 
-![Preparación y limpieza de datos](image/README/preparacion_limpieza_datos.png)
+![Flujo de preparación y limpieza de datos: importación de tres datasets crudos con 4,745 registros, normalización de columnas y limpieza de texto mediante eliminación de URLs, hashtags y espacios extra, auditoria que detecta 216 registros contradictorios y 1,073 duplicados, finalizando con 3,454 registros balanceados distribuidos en 34.7 por ciento positivo, 33.1 por ciento neutral y 32.2 por ciento negativo](images/README/preparacion_limpieza_datos.png)
 
 ---
 
@@ -440,4 +443,5 @@ Si deseas contactarme para discutir este proyecto, oportunidades laborales o col
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Marely%20C%C3%A1rcamo-blue.svg)](https://www.linkedin.com/in/marely/)
 
-NoCountry - Enero 2026
+`<text style="font-size: 14px; align: center; color: gray;">`
+NoCountry - Enero 2026 `</text>`
