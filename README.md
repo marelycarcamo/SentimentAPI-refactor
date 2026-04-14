@@ -56,10 +56,43 @@ Rol en el equpo de trabajo: **Analytics Engineer**, responsable de la **preparac
 
 Con el objetivo de mejorar la capacidad de generalización del modelo, se trabajó condos datasets independientes obtenidos desde Kaggle. Si bien ambos conjuntos de datosabordan el análisis de sentimiento en español, presentan diferencias en estructura,calidad lingüística y formato de origen. Su integración permitió ampliar la diversidad deexpresiones textuales, reduciendo el sesgo hacia un único estilo de redacción yfortaleciendo la robustez del pipeline de preparación de datos en escenarios similares aproducción.
 
-
 ---
 
+### Estructura de Archivos
 
+```
+Sentiment-API-Refactor
+│ 
+├── /datasets
+│      ├── /datasets-origin
+│      │     ├── dataset1.csv
+│      │     ├── dataset2.csv
+│      │     └── dataset3.csv
+│      └── dataset_listo_para_ML.csv
+│
+├── /image
+│   └── README
+│        ├── proceso_sentiment_api.png
+│        ├── preparacion_limpieza_datos.png
+│        ├── eliminacion_registros.png
+│        └── distribucion_sentimientos.png
+│
+├── /notebooks
+│    └──  Modelo_SentimentAPI.ipynb
+│
+├── /source
+│       └──  diccionarios
+│             ├── sentimientos_mapeo.json
+│             ├── sentimientos_negativos.txt
+│             ├── sentimientos-neutros.txt
+│             └── sentimientos_positivos.txt  
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
+```
+
+---
 
 ## 📌 Descripción Notebook SentimentAPI
 
@@ -163,7 +196,6 @@ La distribución final de sentimientos se presenta también con un gráfico comb
 
 ---
 
-
 ### 🔍 Desafíos Identificados y Soluciones Implementadas
 
 #### 1️⃣ 🌍  Desafío: Datasets en inglés requieren traducción al español.
@@ -243,7 +275,6 @@ Inversión en traducción paga en calidad final del dataset
 **Problema:** Demasiadas clases para clasificación efectiva
 **Riesgo:** Overfitting y dificultad en generalización
 
-
 ##### ✅ **Solución: Diccionario de mapeo a 3 categorías principales**
 
 **Fuente:** Diccionario externo con 106 sentimientos mapeados
@@ -265,7 +296,6 @@ Inversión en traducción paga en calidad final del dataset
 **Características:** Abreviaciones, emoticonos, hashtags, lenguaje coloquial
 **Ejemplos:** 'xq' , 'tb' , 'q' , '???', 'lol', hashtags emocionales
 **Riesgo:** Procesamiento literal pierde significado emocional
-
 
 ##### ✅ Solución: Limpieza inteligente que preserva intención emocional
 
@@ -302,26 +332,28 @@ Lenguaje informal es datos válidos, no ruido a eliminar
 
 ---
 
-
-
 #### 📈 Impacto de las Soluciones Implementadas
 
 ### Calidad del dataset final:
+
 - **3,454 registros** perfectamente balanceados
 - **0 contradicciones**, 0 duplicados exactos
 - **Distribución:** 34.7% positivo, 33.1% neutral, 32.2% negativo
 
 ### Escalabilidad demostrada:
+
 - Pipeline procesa **N datasets** sin cambios estructurales
 - Código **80% más corto** que solución ad-hoc equivalente
 - Fácil de extender por nuevos miembros del equipo
 
 ### Decisiones documentadas:
+
 - Cada desafío → solución → justificación registrada
 - Transparencia en trade-offs (ej: eliminar 27% de datos)
 - Base para iteraciones futuras y mejoras continuas
 
 ### Valor para la producción:
+
 - Dataset listo para entrenar modelos de ML
 - Pipeline reusable para nuevos proyectos de análisis de sentimientos
 - Metodología transferible a otros dominios de NLP
@@ -333,7 +365,7 @@ Lenguaje informal es datos válidos, no ruido a eliminar
 Cada desafío encontrado no fue tratado como un problema aislado, sino como una oportunidad para diseñar **soluciones sistémicas** que:
 
 1. **RESUELVEN** el problema inmediato
-2. **ESCALAN** para problemas futuros similares  
+2. **ESCALAN** para problemas futuros similares
 3. **DOCUMENTAN** el razonamiento para transparencia
 4. **CREAN** valor más allá del proyecto específico
 
@@ -341,97 +373,6 @@ Cada desafío encontrado no fue tratado como un problema aislado, sino como una 
 
 ---
 
-## 📣 Instalación y Uso
-
-El repositorio está listo para clonar y ejecutar. Sigue las instrucciones de configuración y en 10 minutos tendrás el dashboard funcionando con datos simulados.
-🔗 [Enlace al repositorio](https://github.com/No-Country-simulation/S03-26-Equipo-47-Business-Intelligence)
-
-Sigue estos pasos para ejecutar el proyecto en local.
-
-### Requisitos Previos
-
-- Python 3.12 o superior instalado.
-- Git (opcional, para clonar el repositorio).
-- Conexión a internet (para descargar dependencias y datos simulados desde GitHub).
-
-### 1. Clonar Repositorio
-
-```
-git clone https://github.com/No-Country-simulation/S03-26-Equipo-47-Business-Intelligence.git
-cd S03-26-Equipo-47-Business-Intelligence
-
-```
-
-### 2. Crear Entorno Virtual e Instalar Dependencias
-
-Windows
-
-```
-python -m venv venv
-venv\Scripts\activate
-```
-
-Linux/Mac
-
-```
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### 3. Instalar dependencias
-
-```
-pip install -r requirements.txt
-```
-
-Si no tienes el archivo requirements.txt, instala manualmente los paquetes principales:
-
-```
-pip install pandas duckdb streamlit plotly jupyter
-```
-
-### 4. Ejecutar Notebooks (carga, limpieza y modelo)
-
-Desde la raíz del proyecto, lanza Jupyter Lab o Notebook:
-
-```
-jupyter notebook
-
-```
-
-Abre y ejecuta en orden los siguientes notebooks (puedes usar Cell -> Run All en cada uno):
-
-| Orden | Notebook                                 | Función                                            |
-| :---: | ---------------------------------------- | --------------------------------------------------- |
-|   1   | ``notebooks/01_load_data.ipynb``         | Descarga los datos raw desde GitHub                 |
-|   2   | ``notebooks/02_clean_data.ipynb``        | Limpia y valida los datos                           |
-|   3   | ``notebooks/03_build_star_schema.ipynb`` | Construye el modelo estrella (dimensiones y hechos) |
-
-### 5. Cargar los datos a Duckdb
-
-Ejecutar el script de carga (full-fresh)
-
-```
-python etl/load.ipynb
-```
-
-Este comando creará la base de datos database/technova.duckdb con todas las tablas listas para consumir.
-
-### 6. Ejecutar el Dashboard (Streamlit)
-
-```
-streamlit run app.py
-```
-
-**Nota:** El archivo app.py será desarrollado por el BI Developer. Si aún no existe, puedes comenzar con un esqueleto básico que cargue la base de datos y muestre una tabla de ejemplo.
-
-### 7. (Opcional) Verificar la base de datos
-
-Puedes hacer consultas directas a DuckDB desde la terminal:
-
-```
-python -c "import duckdb; conn = duckdb.connect('database/technova.duckdb'); print(conn.execute('SHOW TABLES').fetchall())"
-```
 ## 📣 Instalación y Uso
 
 El repositorio está listo para clonar y ejecutar. Sigue las instrucciones de configuración y en 10 minutos tendrás el dashboard funcionando con datos simulados.
@@ -482,6 +423,7 @@ pip install pandas plotly jupyter
 ```
 
 ### 4. Ejecutar el Notebook Modelo_SentimentAPI.ipynb
+
 Desde la raíz del proyecto, lanza Jupyter Lab o Notebook:
 
 ```
@@ -493,6 +435,7 @@ Abre el notebook `Modelo_SentimentAPI.ipynb` y ejecuta todas las celdas para pro
 ---
 
 ## 📣 Contacto
+
 Si deseas contactarme para discutir este proyecto, oportunidades laborales o colaboraciones, no dudes en enviarme un mensaje a través de LinkedIn:
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Marely%20C%C3%A1rcamo-blue.svg)](https://www.linkedin.com/in/marely/)
