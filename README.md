@@ -6,8 +6,8 @@
 
 ## 📑 Contenido
 
-- [Contexto del Proyecto: SentimentAPI](#-contexto-del-proyecto-sentimentapi)
-- [ol](#-rol-en-el-equipo)
+- [Contexto SentimentAPI](#-contexto-del-proyecto-sentimentapi)
+- [Rol Analytics Engineer](#-rol-en-el-equipo)
 - [Stack tecnológico](#stack-tecnológico)
 - [Estructura de archivos](#estructura-de-archivos)
 - [Descripción del notebook](#-descripción-notebook-sentimentapi)
@@ -37,6 +37,7 @@ Este repositorio es un **espejo de mi contribución individual** al proyecto `Se
 
 ### 🧠 Pipeline de Análisis de Sentimientos
 
+> **Título**: **SentimentAPI** 🥲
 > **Notebook**: `Modelo_SentimentAPI.ipynb`
 > **Autor**: [Marely Cárcamo Quisto](https://www.linkedin.com/in/marely/)
 > **Rol**: Analytics Engineer (Data Preparation & Cleaning)
@@ -416,7 +417,9 @@ Cada desafío encontrado no fue tratado como un problema aislado, sino como una 
 3. **DOCUMENTAN** el razonamiento para transparencia
 4. **CREAN** valor más allá del proyecto específico
 
-**El resultado es más que un dataset limpio:** es un **framework de procesamiento de textos para análisis de sentimientos** que balancea automatización, precisión lingüística y colaboración en equipo.
+---
+
+##### "Mi enfoque no se limita a procesar información; transformo datos crudos en activos estratégicos mediante soluciones sistémicas, asegurando que la tecnología sea siempre el motor, y nunca el obstáculo, del crecimiento organizacional."
 
 ---
 
@@ -498,7 +501,6 @@ make run
 
 Si deseas contactarme para discutir este proyecto, oportunidades laborales o colaboraciones, no dudes en enviarme un mensaje a través de LinkedIn:
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Marely%20C%C3%A1rcamo-blue.svg)](https://www.linkedin.com/in/marely/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Marely%20C%C3%A1rcamo-blue.svg)](https://www.linkedin.com/in/marely/) ![No Country - Enero 2026](https://img.shields.io/badge/No%20Country-Data%20Science%20Hackathon-green.svg)
 
-`<text style="font-size: 14px; align: center; color: gray;">`
-NoCountry - Enero 2026 `</text>`
+**Enero 2026**
