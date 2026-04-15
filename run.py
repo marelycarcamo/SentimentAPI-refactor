@@ -9,8 +9,8 @@ import sys
 from pathlib import Path
 
 def main():
-    notebook = Path("Modelo_SentimentAPI.ipynb")
-    
+    notebook = Path("./data-science/notebooks/Modelo_SentimentAPI.ipynb")
+        
     if not notebook.exists():
         print(f"❌ No se encuentra el notebook: {notebook}")
         print("   Asegúrate de ejecutar este script desde la raíz del repositorio.")

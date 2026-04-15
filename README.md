@@ -4,6 +4,18 @@
 
     **Hackathon ONE | Equipo Data Science**
 
+## 📑 Contenido
+
+- [Contexto del Proyecto: SentimentAPI](#-contexto-del-proyecto-sentimentapi)
+- [ol](#-rol-en-el-equipo)
+- [Stack tecnológico](#stack-tecnológico)
+- [Estructura de archivos](#estructura-de-archivos)
+- [Descripción del notebook](#-descripción-notebook-sentimentapi)
+- [Detalles técnicos](#-detalles-técnicos-destacados-de-mi-implementación)
+- [Desafíos y soluciones](#-desafíos-identificados-y-soluciones-implementadas)
+- [Instalación y uso](#-instalación-y-uso)
+- [Contacto](#-contacto)
+
 > [![Python 3.12](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![Hackathon](https://img.shields.io/badge/Hackathon-SentimentAPI-green)](https://github.com/tu-usuario/SentimentAPI-refactor)
 >
 > ---
@@ -40,21 +52,22 @@ Este repositorio es un **espejo de mi contribución individual** al proyecto `Se
 
 ---
 
-### 🧩 Mi rol en el equipo
+### 🧩 Rol en el equipo
 
-Rol en el equpo de trabajo: **Analytics Engineer**, responsable de la **preparación y limpieza de datos** para entrenar el modelo de clasificación de sentimientos. Mi trabajo se centró en:
+Rol en el equpo: **Analytics Engineer**, responsable de la **preparación y limpieza de datos** para entrenar el modelo de clasificación de sentimientos. Mi trabajo se centró en:
 
 * **Procesamiento de 3 datasets heterogéneos** (diferentes formatos, codificaciones y niveles de granularidad).
 * **Pipeline de limpieza, normalización y categorización** de sentimientos en español.
 * **Generación de un dataset unificado y balanceado** , listo para entrenar el modelo de clasificación que usaría el microservicio.
 
-> ⚠️  **Nota importante** : Este repositorio **no incluye** el código del microservicio (API, despliegue, etc.) ni el trabajo del resto del equipo. Es únicamente una muestra de mis capacidades como especialista en procesamiento de datos y documentación técnica, pensado para que reclutadores y aprendices puedan evaluar mi enfoque, calidad de código y toma de decisiones.
+> ⚠️  **Nota importante** : Este repositorio **no incluye** el código del microservicio (API, despliegue, machine learning ,etc.) ni el trabajo del resto del equipo. Es únicamente una muestra de mis capacidades como especialista en procesamiento de datos y documentación técnica, pensado para que reclutadores y aprendices puedan evaluar mi enfoque, calidad de código y toma de decisiones.
+> Dentro de las restricciones del proyecto, era utilizar **un único notebook** para todo el proceso de preparación de datos, lo que me llevó a diseñar un pipeline modular y escalable dentro de ese formato, con funciones reutilizables y una estructura clara. El código está documentado con comentarios detallados y cada decisión de diseño está justificada en el contexto del proyecto.
 >
 > ---
 
 ### Origen de Datos
 
-Con el objetivo de mejorar la capacidad de generalización del modelo, se trabajó condos datasets independientes obtenidos desde Kaggle. Si bien ambos conjuntos de datosabordan el análisis de sentimiento en español, presentan diferencias en estructura,calidad lingüística y formato de origen. Su integración permitió ampliar la diversidad deexpresiones textuales, reduciendo el sesgo hacia un único estilo de redacción yfortaleciendo la robustez del pipeline de preparación de datos en escenarios similares aproducción.
+Con el objetivo de mejorar la capacidad de generalización del modelo, se trabajó con dos datasets independientes obtenidos desde Kaggle. Si bien ambos conjuntos de datos abordan el análisis de sentimiento en español, presentan diferencias en estructura,calidad lingüística y formato de origen. Su integración permitió ampliar la diversidad de expresiones textuales, reduciendo el sesgo hacia un único estilo de redacción y fortaleciendo la robustez del pipeline de preparación de datos en escenarios similares a producción.
 
 ---
 
@@ -66,8 +79,10 @@ Sentiment-API-Refactor
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
+├── run.py
+├── Makefile
 │ 
-├── /image
+├── /images
 │     └── /README
 │          ├── proceso_sentiment_api.png
 │          ├── preparacion_limpieza_datos.png
@@ -162,9 +177,28 @@ Para reducir la dimensionalidad y facilitar el aprendizaje supervisado, cargué 
 
 La función categorizar_sentimiento() aplica este mapeo de forma eficiente y tolerante a mayúsculas/minúsculas.
 
+```
+def categorizar_sentimiento(sentimiento, categorias, nombres=('positivo', 'negativo', 'neutral')):
+
+    """
+    Versión flexible que permite nombres personalizados para las categorías.
+    """
+    if pd.isna(sentimiento):
+        return None
+  
+    sent = str(sentimiento).strip().lower()
+  
+    # Iterar sobre cada categoría
+    for i, lista_categoria in enumerate(categorias):
+        if sent in lista_categoria:
+            return nombres[i]
+
+    return None
+```
+
 #### ✨4. Limpieza de texto robusta para el español
 
-La función limpiar_texto_sentimientos() realiza una normalización Unicode (NFD) para eliminar tildes, pero preserva la letra ñ mediante un sistema de marcadores temporales – algo crítico en español para no perder significado ("año" ≠ "ano").
+La función limpiar_texto_sentimientos() realiza una normalización Unicode (NFD) para eliminar tildes, pero preserva la letra ñ mediante un sistema de marcadores temporales – algo crítico en español para no perder significado.
 
 También se eliminan hashtags, URLs rotas, caracteres no imprimibles y se normalizan espacios múltiples.
 
@@ -187,13 +221,23 @@ Justificación documentada en el notebook.
 
 #### ✨7. Visualización interactiva para comunicación de resultados
 
-Utilicé plotly.graph_objects y make_subplots para generar un dashboard de dos paneles:
+##### Visualización de impacto de limpieza
 
-Barras horizontales que desglosan las causas de eliminación.
+Utilización de `plotly.graph_objects` y `make_subplots` para generar un dashboard de dos paneles:
 
-Gráfico circular que muestra la proporción final de registros conservados vs. eliminados.
+- Barras horizontales que desglosan las causas de eliminación.
+- Gráfico circular que muestra la proporción final de registros conservados vs. eliminados.
+
+Los datos aquí mostrados son resultado del proceso de limpieza, mediante el uso de los contadores acumulativos implementados en el código, que permiten cuantificar el impacto de cada criterio de limpieza y comunicarlo de forma visual a stakeholders o reclutadores.
+
+![Eliminación de registros](images/README/eliminacion_registros.png)
+
+##### Visualización de distribución de sentimientos
 
 La distribución final de sentimientos se presenta también con un gráfico combinado (pie + barras), evidenciando el balance logrado (≈34% cada clase).
+Los datos aquí representados provienen del dataset final limpio, mostrando la proporción de registros clasificados como positivo, negativo y neutral después de aplicar el diccionario de mapeo y la limpieza de texto.
+
+![Distribución de sentimientos](images/README/distribucion_sentimientos.png)
 
 💡 Estas decisiones reflejan mi enfoque en código mantenible, auditoría de datos, escalabilidad y comunicación visual de resultados – cualidades que considero fundamentales en entornos colaborativos y de producción.
 
@@ -208,7 +252,7 @@ La distribución final de sentimientos se presenta también con un gráfico comb
 **Problema:** Modelo final necesita consistencia lingüística en español
 **Riesgo:** Mezcla de idiomas introduce ruido en embeddings y clasificación
 
-##### ✅ **Soluciòn: Proceso de Traducciòn de dos Fases**
+##### ✅ **Solución: Proceso de Traducciòn de dos Fases**
 
 **Fase 1 - Automatización:**
 
@@ -229,7 +273,7 @@ Inversión en traducción paga en calidad final del dataset
 
 ---
 
-##### 2️⃣ 🔠 **Desafío: Inconsistencias de encoding estre datasets.**
+##### 2️⃣ 🔠 **Desafío: Inconsistencias de encoding entre datasets.**
 
 **Contexto:** Cada dataset con encoding diferente (UTF-8, Windows-1252, etc.)
 **Problema:** Caracteres corruptos (􀄬), tildes perdidas, 'ñ' dañada
@@ -378,7 +422,7 @@ Cada desafío encontrado no fue tratado como un problema aislado, sino como una 
 
 ## 📣 Instalación y Uso
 
-El repositorio está listo para clonar y ejecutar. Sigue las instrucciones de configuración y en 10 minutos tendrás el dashboard funcionando con datos simulados.
+Sigue estas instrucciones y en pocos minutos obtendrás el dataset limpio y balanceado, listo para entrenar modelos de Machine Learning.
 🔗 [Enlace al repositorio](https://github.com/marelycarcamo/SentimentAPI-refactor.git)
 
 Sigue estos pasos para ejecutar el proyecto en local.
@@ -434,6 +478,19 @@ jupyter notebook
 ```
 
 Abre el notebook `Modelo_SentimentAPI.ipynb` y ejecuta todas las celdas para procesar los datos y generar el dataset final listo para modelado.
+
+### Ejecución automática (sin abrir Jupyter)
+
+Puedes ejecutar todo el pipeline de limpieza directamente desde la terminal:
+
+```
+# Opción 1: Usando Python
+python run.py
+
+# Opción 2: Usando Make (si lo tienes instalado)
+make run
+
+```
 
 ---
 
