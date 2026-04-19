@@ -2,13 +2,10 @@
 
 ---
 
+> [!IMPORTANT]
+
 ⚠️  **Nota importante** : Este repositorio **no incluye** el código del microservicio (API, despliegue, machine learning ,etc.) ni el trabajo del resto del equipo. Es únicamente una muestra de mis capacidades como especialista en procesamiento de datos y documentación técnica, pensado para que reclutadores y aprendices puedan evaluar mi enfoque, calidad de código y toma de decisiones.
 Dentro de las restricciones del proyecto, era utilizar **un único notebook** para todo el proceso de preparación de datos, lo que me llevó a diseñar un pipeline modular y escalable dentro de ese formato, con funciones reutilizables y una estructura clara. El código está documentado con comentarios detallados y cada decisión de diseño está justificada en el contexto del proyecto.
-
-**Proyecto Original** :[ https://github.com/ml-punto-tech/sentiment-api](https://github.com/ml-punto-tech/sentiment-api)
-
-
-**App:**  **[https://sentiment-ceron.vercel.app/](https://sentiment-ceron.vercel.app/)**
 
 ---
 
@@ -31,7 +28,6 @@ Dentro de las restricciones del proyecto, era utilizar **un único notebook** pa
 > ---
 >
 > ## 📌 Contexto del Proyecto: SentimentAPI
->
 >
 > ### 📊 SentimentAPI: Proyecto Destacado (Hackathon No Country)
 >
