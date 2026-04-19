@@ -2,7 +2,17 @@
 
 ---
 
-    **Hackathon ONE | Equipo Data Science**
+⚠️  **Nota importante** : Este repositorio **no incluye** el código del microservicio (API, despliegue, machine learning ,etc.) ni el trabajo del resto del equipo. Es únicamente una muestra de mis capacidades como especialista en procesamiento de datos y documentación técnica, pensado para que reclutadores y aprendices puedan evaluar mi enfoque, calidad de código y toma de decisiones.
+Dentro de las restricciones del proyecto, era utilizar **un único notebook** para todo el proceso de preparación de datos, lo que me llevó a diseñar un pipeline modular y escalable dentro de ese formato, con funciones reutilizables y una estructura clara. El código está documentado con comentarios detallados y cada decisión de diseño está justificada en el contexto del proyecto.
+
+**Proyecto Original** :[ https://github.com/ml-punto-tech/sentiment-api](https://github.com/ml-punto-tech/sentiment-api)
+
+
+**App:**  **[https://sentiment-ceron.vercel.app/](https://sentiment-ceron.vercel.app/)**
+
+---
+
+  **Hackathon ONE | Equipo Data Science**
 
 ## 📑 Contenido
 
@@ -16,22 +26,26 @@
 - [Instalación y uso](#-instalación-y-uso)
 - [Contacto](#-contacto)
 
-> [![Python 3.12](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![Hackathon](https://img.shields.io/badge/Hackathon-SentimentAPI-green)](https://github.com/tu-usuario/SentimentAPI-refactor)
+> [![Python 3.12](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![Hackathon](https://img.shields.io/badge/Hackathon-SentimentAPI-green)](https://nocountry.tech/hackathon-one-ii-latam/cmj15mkcy001joy014aszb3z5)[![Certificate](https://img.shields.io/badge/Verified-Certificate-gold.svg)](https://credsverse.com/credentials/0b4822a8-4e38-4eba-982b-0c8501ed623b)
 >
 > ---
 >
 > ## 📌 Contexto del Proyecto: SentimentAPI
+>
+>
+> ### 📊 SentimentAPI: Proyecto Destacado (Hackathon No Country)
+>
+> Este proyecto fue desarrollado durante la  **Hackathon One II LATAM** , integrando análisis de sentimientos con una arquitectura de datos moderna.
+>
+> * **🌐 Aplicación Web:** [sentiment-ceron.vercel.app](https://sentiment-ceron.vercel.app/) — *Interfaz interactiva para análisis en tiempo real.*
+> * **📂 Repositorio:** [github.com/ml-punto-tech/sentiment-api](https://github.com/ml-punto-tech/sentiment-api) — *Arquitectura, API y lógica de procesamiento.*
+> * **🏆 Showcase Oficial:** [Ficha del Proyecto en No Country](https://nocountry.tech/hackathon-one-ii-latam/cmj15mkcy001joy014aszb3z5) — *Video demo y detalles de la competencia.*
 
 Este repositorio es un **espejo de mi contribución individual** al proyecto `SentimentAPI`, desarrollado en el marco de un **hackathon** por un equipo de  **8 personas** .
 
 `SentimentAPI` es un **microservicio inteligente** que expone una API REST capaz de recibir feedback de usuarios (reseñas, comentarios, encuestas, etc.) y devolver una **predicción de sentimiento** (positivo, negativo, neutral) en tiempo real. El objetivo del proyecto era construir una solución completa, desde la ingesta de datos hasta el despliegue del modelo.
 
 ![Proceso SentimentAPI: Flujo completo desde preparación de datos hasta modelo entrenado. Fase 1 muestra 4,745 registros crudos siendo filtrados a 3,454 limpios, con 27.2% eliminados por duplicados, contradicciones y valores nulos. Fase 2 presenta el entrenamiento con balanceo SMOTE, generación de datos sintéticos, modelo SVM Vieja Confiable con precisión final del 82.8%, y tabla de rendimiento mostrando métricas por clase: Precisión entre 0.82-0.84, F1-Score entre 0.81-0.85 para sentimientos negativo, neutral y positivo](images/README/proceso_sentiment_api.png)
-
-### Enlaces del Proyecto
-
-- [Proyecto Proyecto 1: SentimentAPI — Análisis de Sentimientos de Feedbacks para Data Science | No Country | No Country](https://nocountry.tech/hackathon-one-ii-latam/cmj15mkcy001joy014aszb3z5)
-- [Repositorio GitHub Sentiment API (original)](https://github.com/ml-punto-tech/sentiment-api)
 
 ---
 
@@ -55,16 +69,11 @@ Este repositorio es un **espejo de mi contribución individual** al proyecto `Se
 
 ### 🧩 Rol en el equipo
 
-Rol en el equpo: **Analytics Engineer**, responsable de la **preparación y limpieza de datos** para entrenar el modelo de clasificación de sentimientos. Mi trabajo se centró en:
+Rol en el equipo: **Analytics Engineer**, responsable de la **preparación y limpieza de datos** para entrenar el modelo de clasificación de sentimientos. Mi trabajo se centró en:
 
 * **Procesamiento de 3 datasets heterogéneos** (diferentes formatos, codificaciones y niveles de granularidad).
 * **Pipeline de limpieza, normalización y categorización** de sentimientos en español.
 * **Generación de un dataset unificado y balanceado** , listo para entrenar el modelo de clasificación que usaría el microservicio.
-
-> ⚠️  **Nota importante** : Este repositorio **no incluye** el código del microservicio (API, despliegue, machine learning ,etc.) ni el trabajo del resto del equipo. Es únicamente una muestra de mis capacidades como especialista en procesamiento de datos y documentación técnica, pensado para que reclutadores y aprendices puedan evaluar mi enfoque, calidad de código y toma de decisiones.
-> Dentro de las restricciones del proyecto, era utilizar **un único notebook** para todo el proceso de preparación de datos, lo que me llevó a diseñar un pipeline modular y escalable dentro de ese formato, con funciones reutilizables y una estructura clara. El código está documentado con comentarios detallados y cada decisión de diseño está justificada en el contexto del proyecto.
->
-> ---
 
 ### Origen de Datos
 
@@ -501,6 +510,6 @@ make run
 
 Si deseas contactarme para discutir este proyecto, oportunidades laborales o colaboraciones, no dudes en enviarme un mensaje a través de LinkedIn:
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Marely%20C%C3%A1rcamo-blue.svg)](https://www.linkedin.com/in/marely/) ![No Country - Enero 2026](https://img.shields.io/badge/No%20Country-Data%20Science%20Hackathon-green.svg)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Marely%20C%C3%A1rcamo-blue.svg)](https://www.linkedin.com/in/marely/)[![No Country](https://img.shields.io/badge/No%20Country-Data%20Science%20Hackathon-green.svg)](https://nocountry.tech/hackathon-one-ii-latam/cmj15mkcy001joy014aszb3z5)[![Certificate](https://img.shields.io/badge/Verified-Certificate-gold.svg)](https://credsverse.com/credentials/0b4822a8-4e38-4eba-982b-0c8501ed623b)
 
 **Enero 2026**
