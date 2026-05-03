@@ -2,13 +2,16 @@
 
 ---
 
-   >⚠️  **Nota importante** : Este repositorio **no incluye** el código del microservicio (API, despliegue, machine learning ,etc.) ni el trabajo del resto del equipo. Es únicamente una muestra de mis capacidades como especialista en procesamiento de datos y documentación técnica, pensado para que reclutadores y aprendices puedan evaluar mi enfoque, calidad de código y toma de decisiones.
+## 🎯 Contribución destacada
 
-  > Dentro de las restricciones del proyecto, era utilizar **un único notebook** para todo el proceso de preparación de datos, lo que me llevó a diseñar un pipeline modular y escalable dentro de ese formato, con funciones reutilizables y una estructura clara. El código está documentado con comentarios detallados y cada decisión de diseño está justificada en el contexto del proyecto.
+Desarrollé un pipeline de procesamiento de datos y auditoría de calidad para una API de análisis de sentimientos, diseñado para transformar datasets heterogéneos en un conjunto de datos consistente, balanceado y listo para modelado.
 
----
+Mi trabajo se centró en asegurar la calidad, trazabilidad y escalabilidad del proceso de preparación de datos, impactando directamente en la confiabilidad de las predicciones del modelo.
 
-  **Hackathon ONE | Equipo Data Science**
+> ⚠️ *Este repositorio documenta mi contribución individual.
+> Este desarrollo forma parte de un proyecto realizado en hackathon por un equipo de 8 personas…*
+
+**Hackathon ONE | Equipo Data Science**
 
 ## 📑 Contenido
 
@@ -24,8 +27,6 @@
 
 ---
 
-
-
  [![Python 3.12](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![Hackathon](https://img.shields.io/badge/Hackathon-SentimentAPI-green)](https://nocountry.tech/hackathon-one-ii-latam/cmj15mkcy001joy014aszb3z5)[![Certificate](https://img.shields.io/badge/Verified-Certificate-gold.svg)](https://credsverse.com/credentials/0b4822a8-4e38-4eba-982b-0c8501ed623b)
 
 ## 📌 Contexto del Proyecto: SentimentAPI
@@ -34,19 +35,23 @@
 
  Este proyecto fue desarrollado durante la  **Hackathon One II LATAM** , integrando análisis de sentimientos con una arquitectura de datos moderna.
 
-* **🌐 Aplicación Web:** [sentiment-ceron.vercel.app](https://sentiment-ceron.vercel.app/) — *Interfaz interactiva para análisis en tiempo real.*
-* **📂 Repositorio:** [github.com/ml-punto-tech/sentiment-api](https://github.com/ml-punto-tech/sentiment-api) — *Arquitectura, API y lógica de procesamiento.*
-* **🏆 Showcase Oficial:** [Ficha del Proyecto en No Country](https://nocountry.tech/hackathon-one-ii-latam/cmj15mkcy001joy014aszb3z5) — *Video demo y detalles de la competencia.*
+---
 
->Este repositorio es un **espejo de mi contribución individual** al proyecto `SentimentAPI`, desarrollado en el marco de un **hackathon** por un equipo de  **8 personas** .
+🔗 A continuación se presentan los accesos al proyecto completo desarrollado en equipo durante el hackathon.
+
+* **🌐 Demo en vivo (análisis de sentimientos en tiempo real)** [sentiment-ceron.vercel.app](https://sentiment-ceron.vercel.app/)
+* **📂 Repositorio (Proyecto original):** [Github SentimentAPI](https://github.com/ml-punto-tech/sentiment-api) 
+* **🏆 Showcase Oficial (Video demo):** [Ficha del Proyecto en No Country](https://nocountry.tech/hackathon-one-ii-latam/cmj15mkcy001joy014aszb3z5)
+
+
 
 ![Proceso SentimentAPI: Flujo completo desde preparación de datos hasta modelo entrenado. Fase 1 muestra 4,745 registros crudos siendo filtrados a 3,454 limpios, con 27.2% eliminados por duplicados, contradicciones y valores nulos. Fase 2 presenta el entrenamiento con balanceo SMOTE, generación de datos sintéticos, modelo SVM Vieja Confiable con precisión final del 82.8%, y tabla de rendimiento mostrando métricas por clase: Precisión entre 0.82-0.84, F1-Score entre 0.81-0.85 para sentimientos negativo, neutral y positivo](images/README/proceso_sentiment_api.png)
 
 `SentimentAPI` es un **microservicio inteligente** que expone una API REST capaz de recibir feedback de usuarios (reseñas, comentarios, encuestas, etc.) y devolver una **predicción de sentimiento** (positivo, negativo, neutral) en tiempo real. El objetivo del proyecto era construir una solución completa, desde la ingesta de datos hasta el despliegue del modelo.
 
-
-
 ---
+
+## Analytics Engineering (Data Preparation & Cleaning)
 
 ### 🧠 Pipeline de Análisis de Sentimientos
 
@@ -68,7 +73,7 @@
 
 ### 🧩 Rol en el equipo
 
-Rol en el equipo: **Analytics Engineer**, responsable de la **preparación y limpieza de datos** para entrenar el modelo de clasificación de sentimientos. Mi trabajo se centró en:
+Rol en el equipo: **Data / Analytics Engineer (Data Processing & Quality)**, responsable de la **preparación y limpieza de datos** para entrenar el modelo de clasificación de sentimientos. Mi trabajo se centró en:
 
 * **Procesamiento de 3 datasets heterogéneos** (diferentes formatos, codificaciones y niveles de granularidad).
 * **Pipeline de limpieza, normalización y categorización** de sentimientos en español.
@@ -92,11 +97,11 @@ Sentiment-API-Refactor
 ├── Makefile
 │ 
 ├── /images
-│     └── /README
-│          ├── proceso_sentiment_api.png
-│          ├── preparacion_limpieza_datos.png
-│          ├── eliminacion_registros.png
-│          └── distribucion_sentimientos.png
+│ └── /README
+│   ├── proceso_sentiment_api.png
+│   ├── preparacion_limpieza_datos.png
+│   ├── eliminacion_registros.png
+│   └── distribucion_sentimientos.png
 │
 └── /data-science
      │
@@ -238,6 +243,8 @@ Utilización de `plotly.graph_objects` y `make_subplots` para generar un dashboa
 - Gráfico circular que muestra la proporción final de registros conservados vs. eliminados.
 
 Los datos aquí mostrados son resultado del proceso de limpieza, mediante el uso de los contadores acumulativos implementados en el código, que permiten cuantificar el impacto de cada criterio de limpieza y comunicarlo de forma visual a stakeholders o reclutadores.
+
+Esta visualización muestra el impacto real de las decisiones de limpieza sobre el dataset, permitiendo evaluar la calidad de los datos utilizados por el modelo.
 
 ![Eliminación de registros](images/README/eliminacion_registros.png)
 
